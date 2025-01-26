@@ -2253,7 +2253,7 @@ periodics:
       secret:
         secretName: result-aggregator
 - agent: kubernetes
-  cluster: build11
+  cluster: build07
   cron: 5 5 1-31/3 * *
   decorate: true
   decoration_config:
