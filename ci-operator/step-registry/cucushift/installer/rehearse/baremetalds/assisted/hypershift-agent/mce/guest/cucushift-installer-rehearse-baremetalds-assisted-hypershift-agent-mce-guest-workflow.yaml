@@ -6,10 +6,12 @@ workflow:
       - ref: cucushift-hypershift-extended-enable-guest
       - ref: cucushift-installer-reportportal-marker
     post:
+      - ref: cucushift-installer-wait
       - ref: cucushift-hypershift-extended-disable-guest
       - chain: cucushift-installer-rehearse-baremetalds-assisted-hypershift-agent-mce-deprovision
       - ref: send-results-to-reportportal
     env:
+      SLEEP_DURATION: 12h
       CLUSTERTYPE: host_384gb_el9
       LVM_OPERATOR_SUB_SOURCE: lvm-catalogsource
       METALLB_OPERATOR_SUB_SOURCE: qe-app-registry

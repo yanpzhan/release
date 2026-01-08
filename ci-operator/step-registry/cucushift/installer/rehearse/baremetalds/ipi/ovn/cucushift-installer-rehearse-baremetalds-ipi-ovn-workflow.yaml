@@ -5,9 +5,11 @@ workflow:
       - chain: cucushift-installer-rehearse-baremetalds-ipi-ofcir-provision
       - ref: cucushift-installer-reportportal-marker
     post:
+      - ref: cucushift-installer-wait
       - chain: cucushift-installer-rehearse-baremetalds-ipi-ofcir-deprovision
       - ref: send-results-to-reportportal
     env:
+      SLEEP_DURATION: 12h
       DEVSCRIPTS_CONFIG: |
         IP_STACK=v4
         NETWORK_TYPE=OVNKubernetes
